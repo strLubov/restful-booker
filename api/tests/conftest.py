@@ -25,4 +25,3 @@ def create_booking(booker_api_client):
     id = result["bookingid"]
 
     return id, result.get("booking")
-
