@@ -1,6 +1,7 @@
-from api.helpers.urls import endpoints
-from requests import Response
 from allure import step
+from requests import Response
+
+from api.helpers.urls import endpoints
 
 
 def test_get_filter_by_name(booker_api_client, create_booking):
@@ -35,8 +36,3 @@ def test_get_filter_by_id(booker_api_client, create_booking):
 
     with step("Check result"):
         assert response.json() == booking_info
-
-
-
-
-

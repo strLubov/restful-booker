@@ -1,17 +1,16 @@
+import allure
+# from ui import command as ui_command
+from selene import have
+from selene.core.command import *  # noqa
+from selene.support.shared import browser
+
 from ui.data.guest import Guest
 from ui.data.model import Contact
 from ui.pages.base_page import BasePage
-from selene.support.shared import browser
-from selenium.webdriver import ActionChains
-from selene.core.command import *  # noqa
-#from ui import command as ui_command
-from selenium.common.exceptions import NoSuchElementException
-from selene import have, be
-import allure
+
 
 class FrontPage(BasePage):
-
-    BOOK_THIS_ROOM = browser.element(".hotel-room-info .btn-outline-primary") #переписать селектор на первого потомка
+    BOOK_THIS_ROOM = browser.element(".hotel-room-info .btn-outline-primary")  # переписать селектор на первого потомка
     FIRST_NAME = browser.element(".room-firstname")
     LAST_NAME = browser.element(".room-lastname")
     EMAIL = browser.element(".room-email")
@@ -28,8 +27,6 @@ class FrontPage(BasePage):
     CONTACT_ADDRESS = browser.element(".col-sm-5>p:nth-child(2)")
     CONTACT_PHONE = browser.element(".col-sm-5>p:nth-child(3)")
     CONTACT_EMAIL = browser.element(".col-sm-5>p:nth-child(4)")
-
-
 
     def select_room(self):
         self.BOOK_THIS_ROOM.click()
@@ -95,8 +92,3 @@ class FrontPage(BasePage):
         self.CONTACT_PHONE.should(have.text(model.phone))
         self.CONTACT_ADDRESS.should(have.text(model.address))
         return self
-
-
-
-
-

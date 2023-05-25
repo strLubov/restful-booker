@@ -1,8 +1,11 @@
+import time
+
+import allure
+from selene import have, be
+from selene.support.shared import browser
+
 from ui.data.model import Room
 from ui.pages.base_page import BasePage
-from selene.support.shared import browser
-from selene import have, be
-import allure
 
 
 class AdminRooms(BasePage):
@@ -27,7 +30,6 @@ class AdminRooms(BasePage):
     UPDATE_BUTTON = browser.element("#update")
     ROOM_DETAILS_NAME = browser.element(".col-sm-10")
     ROOM_DETAILS = browser.element(".room-details>.row:nth-child(3)>.col-sm-6:nth-child(1)")
-
 
     def fill_room_name(self, value):
         self.ROOM_NAME.clear().type(value).press_enter()
@@ -64,6 +66,7 @@ class AdminRooms(BasePage):
     def select_tv(self):
         self.TV.click()
         return self
+
     def create(self):
         self.CREATE_BUTTON.click()
         return self
@@ -113,19 +116,10 @@ class AdminRooms(BasePage):
     def edit(self, room: Room):
         self.EDIT_BUTTON.click()
         self.fill_room_name(room.name)
+        time.sleep(2)
         self.select_room_type(room.type)
         self.fill_price(room.price)
         self.fill_description()
         self.select_views()
         self.select_tv()
         self.UPDATE_BUTTON.click()
-
-
-
-
-
-
-
-
-
-

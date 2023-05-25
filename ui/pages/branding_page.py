@@ -1,9 +1,8 @@
-import time
+import allure
+from selene.support.shared import browser
 
 from ui.data.model import Contact
 from ui.pages.base_page import BasePage
-from selene.support.shared import browser
-import allure
 
 
 class Branding(BasePage):
@@ -16,8 +15,6 @@ class Branding(BasePage):
     CLOSE_ALERT = browser.element(".col-12 .btn-outline-primary")
     LINK_FRONT_PAGE = browser.element("#frontPageLink")
     LINK_BRANDING_PAGE = browser.element("#brandingLink")
-
-
 
     def fill_name(self, value):
         self.NAME.clear().type(value).press_enter()
@@ -61,7 +58,3 @@ class Branding(BasePage):
     def go_branding_page(self):
         self.LINK_BRANDING_PAGE.click()
         return self
-
-
-
-

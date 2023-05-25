@@ -1,6 +1,7 @@
-from ui.pages.base_page import BasePage
-from selene.support.shared import browser
 import allure
+from selene.support.shared import browser
+
+from ui.pages.base_page import BasePage
 
 
 class LoginPage(BasePage):

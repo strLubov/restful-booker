@@ -2,7 +2,6 @@ import logging
 
 import curlify
 from allure import step
-from allure_commons.types import AttachmentType
 from requests import Session
 
 

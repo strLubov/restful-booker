@@ -11,7 +11,7 @@ def test_edit_contact_info(open_browser_with_cookie):
     branding.go_branding_page()
     branding.update_contact_info(contact)
 
-    #THEN
+    # THEN
 
     branding.close_alert()
     branding.go_front_page()

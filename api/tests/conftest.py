@@ -1,11 +1,10 @@
 import pytest
-from requests import Response
 from allure import step
-
+from requests import Response
 
 from api.helpers.api_client import BaseSession
-from api.helpers.urls import endpoints
 from api.helpers.metods import check_ok_response
+from api.helpers.urls import endpoints
 from api.models.booking import Booking
 from api.shemas.booking import successful_booking
 
