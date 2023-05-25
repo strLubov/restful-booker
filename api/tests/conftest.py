@@ -1,6 +1,7 @@
 import pytest
 from requests import Response
-from faker import Faker
+from allure import step
+
 
 from api.helpers.api_client import BaseSession
 from api.helpers.urls import endpoints
@@ -16,12 +17,13 @@ def booker_api_client():
 
 @pytest.fixture()
 def create_booking(booker_api_client):
+    with step("Предварительное создание бронирования"):
 
-    payload = Booking.booking_info()
-    response: Response = booker_api_client.send_request(method='post', url=endpoints.BOOKING, json=payload)
+        payload = Booking.booking_info()
+        response: Response = booker_api_client.send_request(method='post', url=endpoints.BOOKING, json=payload)
 
-    result = check_ok_response(response=response, schema=successful_booking)
+        result = check_ok_response(response=response, schema=successful_booking)
 
-    id = result["bookingid"]
+        id = result["bookingid"]
 
-    return id, result.get("booking")
+        return id, result.get("booking")

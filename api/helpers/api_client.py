@@ -1,6 +1,5 @@
 import logging
 
-import allure
 import curlify
 from allure import step
 from allure_commons.types import AttachmentType
@@ -16,9 +15,9 @@ class BaseSession(Session):
         with step(f'{method} {url}'):
             response = super().request(method=method, url=f'{self.base_url}{url}', **kwargs)
             curl_log = f'CODE: {response.status_code} {curlify.to_curl(response.request)}'
-            #
-            #
-            # logging.info(curl_log)
+
+            logging.info(curl_log)
+
             #
             # if response.json() == {}:
             #     logging.info(response.json())
