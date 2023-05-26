@@ -5,9 +5,9 @@ from ui.pages.admin_rooms_page import AdminRooms
 
 fake = Faker()
 
-room = Room(name="test_room", price="100", type="Double", accessible="True")
-room_update = Room(name=fake.country(), price="100", type="Single", accessible="True")
-room_updated = Room(name=fake.country(), price="500", type="Twin", accessible="False")
+room = Room(name='test_room', price="100", type="Double", accessible="True")
+room_update = Room(name='room', price="100", type="Single", accessible="True")
+room_updated = Room(name='new_room', price="500", type="Twin", accessible="False")
 
 
 def test_create_room(open_browser_with_cookie):
