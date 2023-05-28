@@ -1,10 +1,11 @@
-from faker import Faker
 import pytest
+from faker import Faker
 
 from ui.data.model import Room
 from ui.pages.admin_rooms_page import AdminRooms
 
 fake = Faker()
+
 
 @pytest.mark.parametrize("type", ["Single", "Double", "Twin", "Family", "Suite"])
 def test_create_room(open_browser_with_cookie, type):
@@ -20,7 +21,6 @@ def test_create_room(open_browser_with_cookie, type):
 
 
 def test_update_room(open_browser_with_cookie):
-
     room_update = Room(name='room', price="100", type="Single", accessible="True")
     room_updated = Room(name='new_room', price="500", type="Twin", accessible="False")
 
