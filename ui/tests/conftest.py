@@ -12,10 +12,7 @@ from api.helpers.api_client import BaseSession
 from api.helpers.urls import endpoints
 from ui.utils import attach
 
-load_dotenv()
 
-LOGIN = os.getenv('admin_login')
-PASSWORD = os.getenv('admin_password')
 DEFAULT_BROWSER_VERSION = "100.0"
 
 
@@ -27,9 +24,13 @@ def api_ui_client():
 
 @pytest.fixture()
 def login_admin_ui(api_ui_client):
+
+    LOGIN_ADMIN = os.getenv('admin_login')
+    PASSWORD_ADMIN = os.getenv('admin_password')
+
     payload = {
-        'username': LOGIN,
-        'password': PASSWORD
+        'username': LOGIN_ADMIN,
+        'password': PASSWORD_ADMIN
     }
 
     response: Response = api_ui_client.send_request(method='post', url=endpoints.LOGIN, json=payload,
