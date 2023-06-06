@@ -1,7 +1,5 @@
 import allure
-# from ui import command as ui_command
 from selene import have
-from selene.core.command import *  # noqa
 from selene.support.shared import browser
 
 from ui.data.guest import Guest
@@ -60,30 +58,6 @@ class FrontPage(BasePage):
 
     def book(self):
         self.BOOK_BUTTON.click()
-
-    def select_checkin_and_checkout_date(self):
-        self.CHECKIN_DATE.perform(ui_command.drag_to(self.CHECKOUT_DATE))
-
-    # def select_date(self):
-    #     action = ActionChains(driver=browser.driver)
-    #     action.click_and_hold(self.CHECKIN_DATE()).move_by_offset(xoffset=100, yoffset=100).release().perform()
-    #
-    # def should_confirmation_modal(self):
-    #     # проверяем, что модальное окно появилось
-    #     try:
-    #         self.CONFIRMATION_MODAL.click()
-    #     except NoSuchElementException:
-    #         print("Modal window was not found")
-    #         quit()
-    #
-    #     # закрываем модальное окно
-    #     self.CONFIRMATION_MODAL_BUTTON.click()
-    #
-    #     # проверяем, что модальное окно было закрыто
-    #     if self.CONFIRMATION_MODAL.is_displayed():
-    #         print("Modal window was not closed")
-    #     else:
-    #         print("Modal window was successfully closed")
 
     @allure.step("Проверка контактной информации на главной странице")
     def check_contact_info(self, model: Contact):
