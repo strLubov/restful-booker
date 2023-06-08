@@ -5,16 +5,16 @@ successful_booking = Schema(
         "bookingid": int,
         "booking":
             {
-            "firstname": str,
-            "lastname": str,
-            "totalprice": int,
-            "depositpaid": bool,
-            "bookingdates":
+                "firstname": str,
+                "lastname": str,
+                "totalprice": int,
+                "depositpaid": bool,
+                "bookingdates":
                 {
-                "checkin": str,
-                "checkout": str
+                    "checkin": str,
+                    "checkout": str
                 },
-            "additionalneeds": str
+                "additionalneeds": str
                }
     },
     extra=PREVENT_EXTRA,
@@ -28,10 +28,10 @@ base_booking = Schema(
             "totalprice": int,
             "depositpaid": bool,
             "bookingdates":
-                {
+            {
                 "checkin": str,
                 "checkout": str
-                },
+            },
             "additionalneeds": str
     },
     extra=PREVENT_EXTRA,
@@ -46,5 +46,4 @@ booking = Schema(
     },
     extra=PREVENT_EXTRA,
     required=True
-
 )

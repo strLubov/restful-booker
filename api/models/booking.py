@@ -15,19 +15,21 @@ class Booking:
         additionalneeds = fake.bothify()
 
         return {
-        'firstname': firstname,
-        'lastname': lastname,
-        'totalprice': totalprice,
-        'depositpaid': depositpaid,
-               'bookingdates':
-                   {
-                       'checkin': checkin,
-                       'checkout': checkout
-                   },
-        'additionalneeds': additionalneeds}
+            'firstname': firstname,
+            'lastname': lastname,
+            'totalprice': totalprice,
+            'depositpaid': depositpaid,
+            'bookingdates':
+                {
+                    'checkin': checkin,
+                    'checkout': checkout
+                },
+            'additionalneeds': additionalneeds}
 
     @staticmethod
     def booking_headers():
-        authorization = 'Basic YWRtaW46cGFzc3dvcmQxMjM=' #тестовая площадка, генереция токена не работает поэтому он захардкожен
+        authorization = 'Basic YWRtaW46cGFzc3dvcmQxMjM='
+        # тестовая площадка, генереция токена не работает поэтому он захардкожен
 
-        return {'Authorization': authorization}
+        return {
+                'Authorization': authorization}

@@ -7,9 +7,9 @@ from ui.pages.admin_rooms_page import AdminRooms
 fake = Faker()
 
 
-@pytest.mark.parametrize("type", ["Single", "Double", "Twin", "Family", "Suite"])
-def test_create_room(open_browser_with_cookie, type):
-    room = Room(name='test_room', price="100", type=type, accessible="True")
+@pytest.mark.parametrize("type_room", ["Single", "Double", "Twin", "Family", "Suite"])
+def test_create_room(open_browser_with_cookie, type_room):
+    room = Room(name='test_room', price="100", type=type_room, accessible="True")
     list_rooms = AdminRooms()
     list_rooms.create_room(room)
 

@@ -12,23 +12,22 @@ class Booking:
         depositpaid = fake.boolean()
         checkin = fake.date()
         checkout = fake.date()
-
-
         return {
-        "roomid": 1,
-        'firstname': firstname,
-        'lastname': lastname,
-        'totalprice': totalprice,
-        'depositpaid': depositpaid,
-               'bookingdates':
-                   {
-                       'checkin': checkin,
-                       'checkout': checkout
-                   }
+            "roomid": 1,
+            'firstname': firstname,
+            'lastname': lastname,
+            'totalprice': totalprice,
+            'depositpaid': depositpaid,
+            'bookingdates':
+                {
+                    'checkin': checkin,
+                    'checkout': checkout
+                }
         }
 
     @staticmethod
     def booking_headers():
-        authorization = 'Basic YWRtaW46cGFzc3dvcmQxMjM=' #тестовая площадка, генереция токена не работает поэтому он захардкожен
+        authorization = 'Basic YWRtaW46cGFzc3dvcmQxMjM='
+        # тестовая площадка, генереция токена не работает поэтому он захардкожен
 
         return {'Authorization': authorization}

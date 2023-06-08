@@ -7,8 +7,8 @@ class BasePage:
 
     def open(self, url):
         browser.open(url)
-
         return self
 
     def set_cookie(self, token):
         browser.driver.add_cookie({"name": "token", "value": token})
+        return self

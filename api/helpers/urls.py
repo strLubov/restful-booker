@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class endpoints(str, Enum):
+class Endpoints(str, Enum):
     BOOKING = 'booking'
     AUTH = 'auth'
     LOGIN = 'auth/login'

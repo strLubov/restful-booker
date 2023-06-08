@@ -17,13 +17,4 @@ class BaseSession(Session):
 
             logging.info(curl_log)
 
-            #
-            # if response.json() == {}:
-            #     logging.info(response.json())
-            # else:
-            #     logging.info(response.text)
-
-            # allure.attach(curl_log, 'curl_logs', AttachmentType.TEXT, '.log')
-            # allure.attach(str(response.json()), 'response_log', AttachmentType.TEXT, '.log')
-
         return response

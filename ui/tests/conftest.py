@@ -3,13 +3,12 @@ import os
 import allure
 import pytest
 from dotenv import load_dotenv
-from requests import Response
 from selene.support.shared import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 from api.helpers.api_client import BaseSession
-from api.helpers.urls import endpoints
+from api.helpers.urls import Endpoints
 from ui.utils import attach
 
 
@@ -25,16 +24,15 @@ def api_ui_client():
 @pytest.fixture()
 def login_admin_ui(api_ui_client):
 
-    LOGIN_ADMIN = os.getenv('admin_login')
-    PASSWORD_ADMIN = os.getenv('admin_password')
+    login_admin = os.getenv('admin_login')
+    password_admin = os.getenv('admin_password')
 
     payload = {
-        'username': LOGIN_ADMIN,
-        'password': PASSWORD_ADMIN
+        'username': login_admin,
+        'password': password_admin
     }
 
-    response: Response = api_ui_client.send_request(method='post', url=endpoints.LOGIN, json=payload,
-                                                    allow_redirects=False)
+    api_ui_client.send_request(method='post', url=Endpoints.LOGIN, json=payload, allow_redirects=False)
 
     return api_ui_client
 

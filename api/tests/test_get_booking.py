@@ -1,7 +1,7 @@
 from allure import step
 from requests import Response
 
-from api.helpers.urls import endpoints
+from api.helpers.urls import Endpoints
 
 
 def test_get_filter_by_name(booker_api_client, create_booking):
@@ -16,7 +16,7 @@ def test_get_filter_by_name(booker_api_client, create_booking):
         }
 
     with step("Send firstname change request"):
-        response: Response = booker_api_client.send_request(method='get', url=endpoints.BOOKING, params=params)
+        response: Response = booker_api_client.send_request(method='get', url=Endpoints.BOOKING, params=params)
 
     with step("Check result"):
         result = next(
@@ -32,7 +32,7 @@ def test_get_filter_by_id(booker_api_client, create_booking):
         booking_id, booking_info = create_booking
 
     with step("Send firstname change request"):
-        response: Response = booker_api_client.send_request(method='get', url=f'{endpoints.BOOKING}/{booking_id}')
+        response: Response = booker_api_client.send_request(method='get', url=f'{Endpoints.BOOKING}/{booking_id}')
 
     with step("Check result"):
         assert response.json() == booking_info
